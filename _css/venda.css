@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+}
+
+body {
+  background-color: #6f2a8c;
+}
+
+table tr {
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
+/*  */
+
+.icon {
+  border: none; 
+  background-color: rgba(245, 245, 220, 0);
+}
+
+.icon:hover {
+  transition: 0.3s;
+  opacity: 0.6;
+}
+.icon i {
+    padding: 10px ;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 25px;
+  }
+
+  .venderIcon {
+    background-color: #009000;
+  }
+
+
+  .apagarIcon i {
+    color: #b1062b;
+    font-size: 30px;
+  }
+
+  
+  .apagarIcon i:hover {
+    transition: 0.35s;
+    transform: scale(1.1);
+  }
+  
+  
+  
+
+  h4{
+    margin: 0;
+    padding: 0;
+
+  }
+
+.btnCarrinho{
+  background-color: #6F2A8C;
+  padding: 1rem 5rem ;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+
+}
+
+.btnCarrinho1{
+  background-color: #0d740e;
+  padding: 1rem 2rem ;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 10px;
+
+}
+
+.btnCarrinhoCancelar{
+  background-color: #6F2A8C;
+  padding: 1rem 2rem ;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 100;
+  color: #fff;
+  margin-bottom: 10px;
+
+}
+
+
+@media screen and (min-width: 768px){}
+.modal {
+    width: 100%;
+}

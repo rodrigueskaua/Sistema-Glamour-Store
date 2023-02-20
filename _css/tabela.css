@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1{
+  color: white;
+  margin-top: 30px;
+}
+
+.titletest{
+  color: rgb(0, 0, 0);
+
+}
+.img {
+  width: 50px;
+  height: 50px;
+}
+
+table tr {
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
+/*  */
+
+
+.icon {
+  border: none; 
+  background-color: rgba(245, 245, 220, 0);
+}
+
+.icon:hover {
+  transition: 0.3s;
+  opacity: 0.6;
+}
+.icon i {
+    padding: 10px ;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 30px;
+  }
+
+  .apagarIcon i {
+    color: #b1062b;
+  }
+
+  .apagarIcon i:hover {
+    transition: 0.35s;
+    transform: scale(1.1);
+  }
+  .editarIcon {
+    color: #4169e1;
+  }
+  .editarIcon i:hover {
+    transition: 0.35s;
+    transform: scale(1.1);
+  }
+

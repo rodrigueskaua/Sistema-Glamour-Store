@@ -1,0 +1,65 @@
+html,body{
+    height: 100%;
+    background: linear-gradient(35deg, #d1ab4488 1%, #111111c3 75%);
+    
+}
+
+body{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.form-signin{
+
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto; 
+}
+
+.form-signin .form-control{
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin input[type="text"]{
+    margin-bottom: -1px;
+}
+
+.form-signin input[type="password"]{
+    margin-bottom: -1px;
+}
+
+.container{
+    background: #ebebeb;
+    height: auto;
+    width: 100vw;
+    max-width: 500px;
+    align-items: center;
+    border-radius: 5%;
+}
+
+
+#test{
+    margin-top: 60px;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.alert-warning{
+    background-color: #ffffff;
+    padding: 5px;
+
+}
+
+.credenciais{
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+}

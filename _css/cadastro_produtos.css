@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+
+ /*menu*/
+ .header {
+    width: 100%;
+    background-color: rgba(235, 235, 235, 0)!important;
+
+  }
+
+.botao {
+    margin-top: 1rem;
+    padding: 1rem 3rem ;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+
+}
+
+
+.btn-confirmar {
+    border: none;
+    background-color: #20a520;
+}
+
+.btn-cancelar {
+    background-color: #b1062b;
+    border: none;
+
+}
+
+.btn-confirmar:hover {
+    transition: 0.35s;
+    background-color: #145914;
+
+}
+
+.btn-cancelar:hover {
+    transition: 0.35s;
+    background-color: #5d0216;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+.labelSpace label{
+    padding-left: 23px;
+}
+
+.produto_img{
+    border: rgba(156, 156, 156, 0.185) 0.5px solid;
+    width: 450px;
+}
+ 
+.form-floating input:focus-visible {
+    transition: 0.2s ;
+    outline: 2px solid #650087b0;
+    border: 0;
+}
+
+ label {
+    font-weight: 500;
+}
+
+
+h1:after {
+    content: '';
+    display: flex;
+    justify-content: center;
+    width: 35vw;
+    height: 0.3rem;
+    background-color: #e9b93688;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+
+  
