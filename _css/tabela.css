@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none!important;
+  color: unset!important;
+}
 
 h1{
   color: white;
@@ -53,7 +57,7 @@ table tr {
     transform: scale(1.1);
   }
   .editarIcon {
-    color: #4169e1;
+    color: #066db1!important;
   }
   .editarIcon i:hover {
     transition: 0.35s;

@@ -131,11 +131,11 @@ a {
 
 .nav_logo-icon {
   font-size: 1.25rem;
-  color: var(--white-color);
+  color: var(--white-color)!important;
 }
 
 .nav_logo-name {
-  color: var(--white-color);
+  color: var(--white-color)!important;
   font-weight: 700;
 }
 
@@ -146,14 +146,14 @@ a {
 
 .nav_link {
   position: relative;
-  color: var(--white-color);
+  color: var(--white-color)!important;
   margin-bottom: 1.5rem;
   transition: 0.3s;
 }
 
 .nav_link:hover {
   color: var(--first-color-light);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .nav_icon {

@@ -63,8 +63,16 @@
  
 .form-floating input:focus-visible {
     transition: 0.2s ;
-    outline: 2px solid #650087b0;
-    border: 0;
+    
+}
+.form-control{
+    border-radius: 0;
+    border-color: #0000005d;
+}
+.form-control:focus{
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
 }
 
  label {

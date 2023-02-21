@@ -76,6 +76,19 @@
     font-weight: 500;
 }
 
+.form-control{
+    border-radius: 0;
+    border-color: #0000005d;
+}
+.form-control:focus{
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+ label {
+    font-weight: 500;
+}
 
 h1::after {
     content: '';
