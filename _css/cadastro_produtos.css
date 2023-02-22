@@ -5,6 +5,9 @@
 
 }
 
+.container-fluid{
+    max-width: 1224px;
+}
 
  /*menu*/
  .header {
@@ -14,8 +17,8 @@
   }
 
 .botao {
-    margin-top: 1rem;
-    padding: 1rem 3rem ;
+    width: 100%;
+    padding: 1.7rem 3rem ;
     border-radius: 5px;
     font-size: 1.5rem;
     font-weight: 500;
@@ -23,10 +26,9 @@
 
 }
 
-
 .btn-confirmar {
     border: none;
-    background-color: #20a520;
+    background-color: #049104;
 }
 
 .btn-cancelar {
@@ -46,11 +48,7 @@
     background-color: #5d0216;
 }
 
-@media (min-width: 1025px) {
-    .h-custom {
-    height: 100vh !important;
-    }
-    }
+
 
 .labelSpace label{
     padding-left: 23px;
@@ -58,7 +56,8 @@
 
 .produto_img{
     border: rgba(156, 156, 156, 0.185) 0.5px solid;
-    width: 450px;
+    width: 100%!important;
+    height: 60%;
 }
  
 .form-floating input:focus-visible {
@@ -75,10 +74,9 @@
     box-shadow: none;
 }
 
- label {
+label {
     font-weight: 500;
 }
-
 
 h1:after {
     content: '';

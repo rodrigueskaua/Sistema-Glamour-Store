@@ -8,11 +8,13 @@ include "../_scripts/functions.php";
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet"
+        type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     <link rel="icon" href="../_images/bx-package.svg">
     <link rel="stylesheet" href="../_css/cadastro_produtos.css">
@@ -23,138 +25,195 @@ include "../_scripts/functions.php";
 
 <body>
 
-        <?php
-        if($_SESSION['cargo'] == "Administrador" ){
-            include "../menu/menuGerente.php";
-        }else{
-            include "../menu/menuVendedor.php";
-        } 
-         ?>            
-        
-        <section class="h-100 h-custom">
-                <div class="container py-2 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-8 col-xl-10">
-                            <div class="card shadow border-0">
-                                <div class="card-body p-md-3">
-                                    <h1 class="mb-4 pb-2 pb-md-0 mt-md-4 mb-md-5 px-md-2 text-center">Cadastrar Produto</h1>
+    <?php
+    if ($_SESSION['cargo'] == "Administrador") {
+        include "../menu/menuGerente.php";
+    } else {
+        include "../menu/menuVendedor.php";
+    }
+    ?>
 
-                                    <form class="px-md-2" action="" method="POST">
+    <section class="">
+        <div class="container-fluid py-2">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-md-3">
+                            <h1 class="mb-4 pb-2 pb-md-0 mt-md-4 mb-md-5 px-md-2 text-center">Cadastrar Produto</h1>
 
-                                        <div class="form-floating mb-4">
-                                            <input type="text" id="inputNome_produto" name="nomeProduto" class="form-control" placeholder="Digite o nome do produto" required>
-                                            <label for="nome_produto">Nome do Produto</label>
+                            <form class="px-md-2" id="form-cadastrar"method="POST">
 
-                                        </div>
+                            <div class="row labelSpace">
+                                    <div class="col-md-6 mb-3 form-floating">
+                                        <input type="text" id="inputNome_produto" name="nomeProduto" class="form-control"
+                                            placeholder="Digite o nome do produto" required>
+                                        <label for="nome_produto">Nome do Produto</label>
 
-                                        <div class="row labelSpace">
-                                            <div class="col-md-6 mb-4 form-floating">
-                                                <input type="text" id="inputCodigo" name="codigo" class="form-control" placeholder="Digite o código do produto" required>
-                                                <label for="codigo">Código</label>
+                                    </div>
 
-                                            </div>
-
-                                            <div class="col-md-6 mb-4 form-floating">
-                                                <input type="text" id="inputFornecedor" name="fornecedor" class="form-control" placeholder="Digite o fornecedor" required>
-                                                <label for="fornecedor">Fornecedor</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row labelSpace">
-                                            <div class="col-md-4 mb-4 form-floating">
-                                                <input type="text" id="inputCusto" name="custo" class="form-control" placeholder="Digite o custo do produto" required>
-                                                <label for="custo">Custo do Produto</label>
-
-                                            </div>
-
-                                            <div class="col-md-4 mb-4 form-floating">
-                                                <input type="text" id="inputValor_venda" name="valor" class="form-control" placeholder="Digite o valor do produto" required>
-                                                <label for="valor">Valor do Produto</label>
-
-                                            </div>
-
-                                            <div class="col-md-4 mb-4 form-floating">
-                                                <input type="text" id="inputValor_venda" name="quantidade" class="form-control" placeholder="Digite o valor do produto" required>
-                                                <label for="valor">Quantidade</label>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row labelSpace">
-                                            <div class="col-md-12 mb-3 form-floating">
-                                                <input type="text" id="inputLink" name="link" class="form-control" placeholder="Digite o custo do produto" required >
-                                                <label for="custo">Link imagem</label>
-
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-12 mb-2 d-flex justify-content-center align-content-center">
-                                                <img src="../_images/sem_imagem.png" class="produto_img" alt="">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6  d-flex justify-content-center">
-                                                <button type="reset" class="botao btn-cancelar  mb-1">Cancelar</button>
-
-                                            </div>
-
-                                            <div class="col-md-6 d-flex justify-content-center">
-                                                <button type="submit" class="botao btn-confirmar  mb-1">Confirmar</button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-
+                                    <div class="col-md-6 mb-3 form-floating">
+                                        <input type="text" id="inputFornecedor" name="fornecedor" class="form-control"
+                                            placeholder="Digite o fornecedor" required>
+                                        <label for="fornecedor">Marca</label>
+                                    </div>
                                 </div>
-                            </div>
+                               
+
+                                <div class="row labelSpace">
+                                    <div class="col-md-6 mb-3 form-floating">
+                                        <input type="text" id="inputCodigo" name="codigo" class="form-control"
+                                            placeholder="Digite o código do produto" required>
+                                        <label for="codigo">Código</label>
+
+                                    </div>
+
+                                    <div class="col-md-2 mb-3 form-floating">
+                                        <input id="inputCusto" name="custo" class="form-control"
+                                            placeholder="Digite o custo do produto" type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" required>
+                                        <label for="custo">Custo</label>
+
+                                    </div>
+
+                                    <div class="col-md-2 mb-3 form-floating">
+                                        <input type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" id="inputValor_venda" name="valor" class="form-control"
+                                            placeholder="Digite o valor do produto" required>
+                                        <label for="valor">Valor</label>
+
+                                    </div>
+
+                                    <div class="col-md-2 mb-3 form-floating">
+                                        <input type="number" min="1" id="inputQtd" name="quantidade" class="form-control"
+                                            placeholder="Digite o valor do produto" required>
+                                        <label for="valor">Qtd</label>
+                                    </div>
+                                </div>
+
+                                <div class="row labelSpace mb-3">
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" id="inputLink" name="link" class="form-control mb-3 "
+                                            placeholder="Digite o custo do produto" required>
+                                        <label for="custo">Link imagem</label>
+    
+                                        <img src="../_images/sem_imagem.png" class="produto_img" alt="">
+
+                                    </div>
+
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" id="inputData" name="data" class="form-control mb-3 "
+                                            placeholder="Digite o custo do produto" required>
+                                        <label for="custo">Data de Vencimento</label>
+
+                                        <button type="submit" class="botao btn-confirmar  mb-3">Confirmar</button>
+                                        <button type="reset" class="botao btn-cancelar  ">Cancelar</button>
+
+                                    </div>
+
+                                    
+                                </div>
+
+                        
+
+
+            
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
+    </section>
+    
 
-        <?php include '../componentes/js.php'; ?>
+    <?php include '../componentes/js.php'; ?>
 
-    </body>
+</body>
 
 </html>
 
-<?php
-if (!empty($_POST['nomeProduto']) || !empty($_POST['codigo'])) {
+<script>
+    $(document).ready(function(){
+        $("#form-cadastrar").on("submit", function (e) {
+            e.preventDefault();
 
+            var nome = $("#inputNome_produto").val();
+            var codigo = $("#inputCodigo").val();
+            var fornecedor = $("#inputFornecedor").val();
+            var custo = $("#inputCusto").val();
+            var valor = $("#inputValor_venda").val();
+            var quantidade = $("#inputQtd").val();
+            var url = $("#inputLink").val();
 
-    if (cadastrarProduto($_POST)) { ?>
+            var form_data = new FormData();
+            form_data.append("nome", nome);
+            form_data.append("codigo", codigo);
+            form_data.append("fornecedor", fornecedor);
+            form_data.append("custo", custo);
+            form_data.append("valor", valor);
+            form_data.append("quantidade", quantidade);
+            form_data.append("url", url);
 
-        <script language='javascript'>
-            swal.fire({
-                icon: "success",
-                text: "Feito com Sucesso!",
-                type: "success"
-            }).then(okay => {
-                // if (okay) {
-                //     window.location.href = "painel.php?r=";
-                // }
+            $.ajax({
+                url: "ajax/cadastrar.php",
+                method: "POST",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: form_data,
+
+            }).done(function (resultado) {
+                if (resultado == "salvo!") {
+                    swal
+                        .fire({
+                            icon: "success",
+                            text: "Feito com Sucesso!",
+                            type: "success"
+                        })
+                        .then((okay) => {
+                            if (okay) {
+                                $("#edit-btn-close").click();
+                                buscar();
+                            }
+                        });
+                } else {
+                    swal
+                        .fire({
+                            icon: "error",
+                            text: "Ops! Houve um erro.",
+                            type: "success",
+                        })
+                        .then((okay) => {
+                            
+                        });
+                }
+                buscar();
             });
-        </script>
-    <?php
-    } else { ?>
-        <script language='javascript'>
-            swal.fire({
-                icon: "error",
-                text: "Ops! Ouve um erro.",
-                type: "success"
-            }).then(okay => {
-                // if (okay) {
-                //     window.location.href = "painel.php?r=";
-                // }
-            });
-        </script>
-<?php
-    }
-}
-?>
+        });
+
+        $(".btn-cancelar").on("click", function (e) {
+            Swal.fire({
+                title: 'Tem certaza?',
+                text: "Você não será capaz de reverter isso!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, apagar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    'Deletado',
+                    'O produto não foi salvo',
+                    'success'
+                    ).then((okay) => {
+                        window.history.back()
+                    });
+                }
+            })
+        })
+    })
+    
+
+</script>
+
