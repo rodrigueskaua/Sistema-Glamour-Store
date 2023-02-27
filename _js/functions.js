@@ -12,16 +12,30 @@ function mostrarSenha(event) {
   }
 }
 
-let inputImg = document.querySelector("#inputLink");
+var InputLink = document.querySelector("#inputLink");
 
-inputImg.addEventListener("focusout", function(){ 
-  var link = inputImg.value;
+InputLink.addEventListener("focusout", function(){ 
+  var link = InputLink.value;
   var img = document.querySelector(".produto_img");
   img.src = link;
   if(img.src == "" || !link.includes("http") || !link.includes("https")){
     img.src = "../_images/sem_imagem.png"
   }
 });
+
+var cont = 1;
+$(".btnMais").on("click", function (e) {
+  $(".inputsData").append('<div class="input-group DivbtnData inputDataNovo" id="campo'+ cont +'" ><input type="text" name="data[]" class="form-control mb-1 inputData "placeholder="Vencimento" required></input><button id="'+ cont +'" class="btnData btnMenos" type="button">-</button></div> ')
+  $(".inputData").mask("00/00/0000")
+  cont++
+
+})
+
+$("form").on("click", ".btnMenos", function () {
+  var button_id = $(this).attr("id")
+  $('#campo'+ button_id +'').remove()
+})
+
 
 
 

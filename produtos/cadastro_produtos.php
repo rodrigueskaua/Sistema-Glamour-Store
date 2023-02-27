@@ -52,7 +52,7 @@ include "../_scripts/functions.php";
                                     </div>
 
                                     <div class="col-md-6 mb-3 form-floating">
-                                        <input type="text" id="inputFornecedor" name="fornecedor" class="form-control"
+                                        <input type="text" id="inputMarca" name="marca" class="form-control"
                                             placeholder="Digite o fornecedor" required>
                                         <label for="fornecedor">Marca</label>
                                     </div>
@@ -60,61 +60,49 @@ include "../_scripts/functions.php";
                                
 
                                 <div class="row labelSpace">
-                                    <div class="col-md-6 mb-3 form-floating">
-                                        <input type="text" id="inputCodigo" name="codigo" class="form-control"
-                                            placeholder="Digite o código do produto" required>
-                                        <label for="codigo">Código</label>
-
-                                    </div>
-
-                                    <div class="col-md-2 mb-3 form-floating">
+                                
+                                    <div class="col-md-4 mb-3 form-floating">
                                         <input id="inputCusto" name="custo" class="form-control"
                                             placeholder="Digite o custo do produto" type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" required>
                                         <label for="custo">Custo</label>
 
                                     </div>
 
-                                    <div class="col-md-2 mb-3 form-floating">
+                                    <div class="col-md-4 mb-3 form-floating">
                                         <input type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" id="inputValor_venda" name="valor" class="form-control"
                                             placeholder="Digite o valor do produto" required>
                                         <label for="valor">Valor</label>
 
                                     </div>
 
-                                    <div class="col-md-2 mb-3 form-floating">
+                                    <div class="col-md-4 mb-3 form-floating">
                                         <input type="number" min="1" id="inputQtd" name="quantidade" class="form-control"
                                             placeholder="Digite o valor do produto" required>
                                         <label for="valor">Qtd</label>
                                     </div>
                                 </div>
 
-                                <div class="row labelSpace mb-3">
+                                <div class="row labelSpace ">
                                     <div class="col-md-6 form-floating">
                                         <input type="text" id="inputLink" name="link" class="form-control mb-3 "
                                             placeholder="Digite o custo do produto" required>
                                         <label for="custo">Link imagem</label>
-    
+
                                         <img src="../_images/sem_imagem.png" class="produto_img" alt="">
-
                                     </div>
 
-                                    <div class="col-md-6 form-floating">
-                                        <input type="text" id="inputData" name="data" class="form-control mb-3 "
-                                            placeholder="Digite o custo do produto" required>
-                                        <label for="custo">Data de Vencimento</label>
-
-                                        <button type="submit" class="botao btn-confirmar  mb-3">Confirmar</button>
-                                        <button type="reset" class="botao btn-cancelar  ">Cancelar</button>
-
+                                    <div class="col-md-6 inputsData">
+                                        <div class="input-group DivbtnData mb-3">
+                                            <input id="inputVenc" type="text" name="data[]" class="form-control inputData"placeholder="Vencimento" required>                                            
+                                            <button class="btnData btnMais" type="button">+</button>
+                                        </div>       
+                                
                                     </div>
-
                                     
                                 </div>
 
-                        
-
-
-            
+                                <button type="submit" class="botao btn-confirmar  mt-3 mb-3">Confirmar</button>
+                                <button class="botao btn-cancelar  ">Cancelar</button>
 
                             </form>
 
@@ -138,17 +126,17 @@ include "../_scripts/functions.php";
             e.preventDefault();
 
             var nome = $("#inputNome_produto").val();
-            var codigo = $("#inputCodigo").val();
-            var fornecedor = $("#inputFornecedor").val();
+            var marca = $("#inputMarca").val();
             var custo = $("#inputCusto").val();
             var valor = $("#inputValor_venda").val();
             var quantidade = $("#inputQtd").val();
             var url = $("#inputLink").val();
+            var validade = getInputDatas();
 
             var form_data = new FormData();
             form_data.append("nome", nome);
-            form_data.append("codigo", codigo);
-            form_data.append("fornecedor", fornecedor);
+            form_data.append("validade", validade);
+            form_data.append("marca", marca);
             form_data.append("custo", custo);
             form_data.append("valor", valor);
             form_data.append("quantidade", quantidade);
@@ -172,8 +160,8 @@ include "../_scripts/functions.php";
                         })
                         .then((okay) => {
                             if (okay) {
-                                $("#edit-btn-close").click();
-                                buscar();
+                                document.getElementById('form-cadastrar').reset()
+                                $(".produto_img").attr("src", "../_images/sem_imagem.png")
                             }
                         });
                 } else {
@@ -187,7 +175,6 @@ include "../_scripts/functions.php";
                             
                         });
                 }
-                buscar();
             });
         });
 
@@ -212,6 +199,21 @@ include "../_scripts/functions.php";
                 }
             })
         })
+
+        function getInputDatas(){
+            var qtd = document.querySelectorAll('.inputData').length;
+            var Datas = '';
+            $(".inputData").each(function(index) {
+                if((index + 1) != qtd){
+                   Datas += $(this).val() + ":";
+                }
+                else{
+                    Datas += $(this).val();
+                }
+            });
+            return Datas;
+        }
+        
     })
     
 

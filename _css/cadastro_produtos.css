@@ -18,28 +18,31 @@
 
 .botao {
     width: 100%;
-    padding: 1.7rem 3rem ;
+    padding: .8rem 1rem ;
     border-radius: 5px;
     font-size: 1.5rem;
     font-weight: 500;
     color: #fff;
 
 }
+.height-100 {
+    height: 0!important;
+}
 
 .btn-confirmar {
+    background: #17a117;
     border: none;
-    background-color: #049104;
 }
 
 .btn-cancelar {
-    background-color: #b1062b;
+    background: linear-gradient(0deg, rgb(161, 18, 18) 0%, rgba(197, 31, 31, 0.822) 100%);
     border: none;
 
 }
 
 .btn-confirmar:hover {
     transition: 0.35s;
-    background-color: #145914;
+    background: #145914;
 
 }
 
@@ -56,8 +59,8 @@
 
 .produto_img{
     border: rgba(156, 156, 156, 0.185) 0.5px solid;
-    width: 100%!important;
-    height: 60%;
+    width: 100%;
+    height: 325px;
 }
  
 .form-floating input:focus-visible {
@@ -65,11 +68,14 @@
     
 }
 .form-control{
-    border-radius: 0;
-    border-color: #0000005d;
+    height: calc(3.5rem + 2px);
+    border-radius: 15px;
+    background-color: rgba(241, 241, 241, 0.034);
 }
 .form-control:focus{
-    border-radius: 0;
+    background-color: rgb(247, 247, 247);
+    border-color: #0000005d;
+
     outline: 0;
     box-shadow: none;
 }
@@ -77,6 +83,8 @@
 label {
     font-weight: 500;
 }
+
+
 
 h1:after {
     content: '';
@@ -89,6 +97,28 @@ h1:after {
     margin-top: 10px;
     border-radius: 10px;
 }
+.input-group input{
+    font-weight: 500;
+    height: calc(3.5rem + 2px);
+}
 
+.btnData{
+    border: 1px solid #0000005d;
+    background-size: 300% 100%;
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 5px 15px 5px 13px;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    color: #fff;
+}
+.btnMais{
+    background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgb(74, 226, 87) 100%);
+}
+.btnMenos{
+    background: linear-gradient(0deg, rgb(182, 38, 38) 0%, rgba(236, 56, 56, 0.822) 100%);
 
-  
+    height: 58px;
+    padding: 5px 17px;
+}    

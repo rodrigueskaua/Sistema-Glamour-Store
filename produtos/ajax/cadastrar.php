@@ -2,19 +2,18 @@
 header('Content-type: application/json');
 require_once("../../_scripts/config_pdo.php");
 require_once("../../_scripts/functions.php");
-
 try {
-    if (isset($_POST['nome']) && isset($_POST['codigo']) && isset($_POST['fornecedor']) && isset($_POST['custo']) && isset($_POST['valor']) && isset($_POST['quantidade']) && isset($_POST['url'])) {
+    if (isset($_POST['nome']) && isset($_POST['validade']) && isset($_POST['marca']) && isset($_POST['custo']) && isset($_POST['valor']) && isset($_POST['quantidade']) && isset($_POST['url'])) {
         $nome = $_POST['nome'];
-        $codigo = $_POST['codigo'];
-        $fornecedor = $_POST['fornecedor'];
+        $validade = $_POST['validade'];
+        $marca = $_POST['marca'];
         $custo = $_POST['custo'];
         $valor = $_POST['valor'];
         $quantidade = $_POST['quantidade'];
         $url = $_POST['url'];
         
-        $query = $pdo->prepare("INSERT INTO cad_produto (id, data_cadastro, nome_produto, fornecedor, custo_produto, valor_venda, estoque_qtd, codigo_produto, url_img)
-        VALUES('{NULL}', '{current_timestamp()}','{$nome}', '{$fornecedor}', '{$custo}', '{$valor}', '{$quantidade}', '{$codigo}', '{$url}')");
+        $query = $pdo->prepare("INSERT INTO cad_produto (id, data_cadastro, nome_produto, marca, custo_produto, valor_venda, estoque_qtd, vencimento, url_img)
+        VALUES(NULL, current_timestamp(),'{$nome}', '{$marca}', '{$custo}', '{$valor}', '{$quantidade}', '{$validade}', '{$url}')");
         $query->execute();
 
         if ($query->rowCount() >= 1) {
