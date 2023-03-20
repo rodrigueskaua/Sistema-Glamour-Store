@@ -26,90 +26,26 @@ include '../login/protect.php';
     <title>Produtos</title>
 </head>
 
-
+<body>
 <?php
         if($_SESSION['cargo'] == "Administrador" ){
             include "../menu/menuGerente.php";
-        }else{
-            include "../menu/menuVendedor.php";
-        } 
+        }
          ?>   
 
-         <button type="button" class="tableBtn tableBtnEditar" data-bs-toggle="modal" data-bs-target="#modalEditar" data-bs-whateverid="1" data-bs-whatevernome="Camila Pitanga" data-bs-whateverusuario="gerente" data-bs-whateversenha="1234" data-bs-whatevercpf="123.123.123.12" data-bs-whateverfuncao="Gerente">
-                    <i class="bx bx-edit-alt"></i>
-                </button>
     <section id="listar_clientes">
 
 
         <div class="container-fluid  py-2">
-            <div class="row  py-2">
+            <div class="row ">
                 <div class="col-lg-12 mx-auto">
                     <div class="card rounded shadow border-0">
-                        <div class="card-body p-5 bg-white rounded">
-                        <h1 class="titletest mt-0 mb-5">Produtos</h1>
+                        <div class="card-body p-4 bg-white rounded">
+                        <h1 class="titletest mt-0 p-2 mb-4">Produtos</h1>
+                        <div id="tabela">
 
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover " id="mytable">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align:center">ID</th>
-                                            <th style="text-align:center">Img</th>
-
-                                            <th style="text-align:center">Nome</th>
-                                            <th style="text-align:center">Código</th>
-                                            <th style="text-align:center">Fornecedor</th>
-                                            <th style="text-align:center">Custo</th>
-                                            <th style="text-align:center">Valor venda</th>
-                                            <th style="text-align:center">Quantidade</th>
-
-                                            <th style="text-align:center">#</th>
-                                            <th style="text-align:center">#</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php //Inicio do loop para preencher a tabela
-                                        include "../_scripts/config.php";
-                                        $sql = "SELECT * FROM cad_produto";
-                                        $query = $mysqli->query($sql);
-                                        while ($dados = $query->fetch_array()) {
-                                        ?>
-                                            <tr>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['id']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <img class="img" src=" <?php echo $dados['url_img']; ?>" alt="">
-
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['nome_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['codigo_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['fornecedor']; ?>
-                                                </td>
-
-                                                <td style="text-align:center">
-                                                    R$<?php echo $dados['custo_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    R$<?php echo $dados['valor_venda']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['estoque_qtd']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                <button class=" icon editarIcon"><a href="editar_produto.php?id=<?php echo $dados['id']?>"><i class="fa-solid fa-file-pen"></i></a></button>
-                                                </td>
-                                                <td style="text-align:center">
-                                                <button class=" icon apagarIcon" onclick='apagarProduto(event,<?php echo $dados["id"]?>)' id='<?php echo $dados["id"]?>'><i class="fa-solid fa-trash-can"></i></button></td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                        </div>
+                                    
                         </div>
                     </div>
                 </div>
@@ -131,61 +67,65 @@ include '../login/protect.php';
             <form method="POST" class="formulario" id="form-editar">
               
                 <input type="text" hidden class="form form-control" id="inputId" placeholder="Id">
-                <div class="form-floating mb-4">
-                    <input type="text" id="inputNome_produto" name="nomeProduto" class="form-control" placeholder="Digite o nome do produto" required>
-                    <label for="nome_produto">Nome do Produto</label>
+                                
+                <div class="row labelSpace">
+                    <div class="col-md-6 mb-3 form-floating">
+                        <input type="text" id="inputNome_produto" name="nomeProduto" class="form-control"
+                            placeholder="Digite o nome do produto" required>
+                        <label for="nome_produto">Nome do Produto</label>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3 form-floating">
+                        <input type="text" id="inputMarca" name="marca" class="form-control"
+                            placeholder="Digite o fornecedor" required>
+                        <label for="fornecedor">Marca</label>
+                    </div>
+                </div>
+                
+
+                <div class="row labelSpace">
+                
+                    <div class="col-md-4 mb-3 form-floating">
+                        <input id="inputCusto" name="custo" class="form-control"
+                            placeholder="Digite o custo do produto" type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" required>
+                        <label for="custo">Custo</label>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3 form-floating">
+                        <input type="number" pattern="[0-9]+([,\.][0-9]+)?" min="1" step="any" id="inputValor_venda" name="valor" class="form-control"
+                            placeholder="Digite o valor do produto" required>
+                        <label for="valor">Valor</label>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3 form-floating">
+                        <input type="number" min="1" id="inputQtd" name="quantidade" class="form-control"
+                            placeholder="Digite o valor do produto" required>
+                        <label for="valor">Qtd</label>
+                    </div>
                 </div>
 
-            <div class="row labelSpace">
-                <div class="col-md-6 mb-4 form-floating">
-                    <input type="text" id="inputCodigo" name="codigo" class="form-control" placeholder="Digite o código do produto" required>
-                    <label for="codigo">Código</label>
+                <div class="row labelSpace ">
+                    <div class="col-md-6 form-floating">
+                        <input type="text" id="inputLink" name="link" class="form-control mb-3 "
+                            placeholder="Digite o custo do produto" required>
+                        <label for="custo">Link imagem</label>
+
+                        <img src="../_images/sem_imagem.png" class="produto_img" alt="">
+                    </div>
+
+                    <div class="col-md-6 inputsData">
+                        <div class="input-group DivbtnData mb-3">
+                            <input id="InputData" type="text" name="data[]" class="form-control inputData"placeholder="Vencimento" required>                                            
+                            <button class="btnData btnMais" type="button">+</button>
+                        </div>       
+                
+                    </div>
+                    
                 </div>
-
-                <div class="col-md-6 mb-4 form-floating">
-                    <input type="text"  id="inputFornecedor" name="fornecedor" class="form-control" placeholder="Digite o fornecedor" required>
-                    <label for="fornecedor">Fornecedor</label>
-
-                </div>
-            </div>
-
-            <div class="row labelSpace">
-                <div class="col-md-4 mb-4 form-floating">
-                    <input type="text"  id="inputCusto" name="custo" class="form-control" placeholder="Digite o custo do produto" required>
-                    <label for="custo">Custo do Produto</label>
-
-                </div>
-
-                <div class="col-md-4 mb-4 form-floating">
-                    <input type="text" id="inputValor_venda" name="valor" class="form-control" placeholder="Digite o valor do produto" required>
-                    <label for="valor">Valor do Produto</label>
-
-                </div>
-
-                <div class="col-md-4 mb-4 form-floating">
-                    <input type="text" id="inputValor_venda"  name="quantidade" class="form-control" placeholder="Digite o valor do produto" required>
-                    <label for="valor">Quantidade</label>
-                </div>
-            </div>
-
-
-            <div class="row labelSpace">
-                <div class="col-md-12 mb-3 form-floating">
-                    <input type="text" id="inputLink"   name="link" class="form-control" placeholder="Digite o custo do produto" required onblur="trocar(event)">
-                    <label for="custo">Link imagem</label>
-
-                </div>
-
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-12 mb-2 d-flex justify-content-center align-content-center">
-                    <img src="../_images/sem_imagem.png" class="produto_img" alt="">
-                </div>
-            </div>                
-
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 mt-4">
                     <button class="btnCadastro confirmar" type="submit">Cadastrar</button>
                 </div>
             </form>  
@@ -193,8 +133,210 @@ include '../login/protect.php';
         </div>
       </div>
     </div>
+    <?php include '../componentes/js.php'; ?>
+
+    <script>
+
+    $(document).ready(function () {
+        listarProdutos();
+    })
+
+    function listarProdutos() {
+        var displayData = "true";
+        $.ajax({
+            url: "ajax/listar.php",
+            type: "post",
+            data: {
+                mostrar: displayData,
+            },
+
+            success: function (data, status) {
+                // console.log(status)
+                $("#tabela").html(data);
+                $('#mytable').DataTable( {
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+    } );
+            },
+        });
+    };
+
+
+    
+    const modal = document.getElementById("modalEditar");
+
+    $("#modalEditar").on('hidden.bs.modal', function () {
+       $(".inputDataNovo").remove()
+    });
+
+
+    modal.addEventListener("show.bs.modal", (event) => {
+        const button = event.relatedTarget;
+
+        const inputId = modal.querySelector("#inputId");
+        const inputNome = modal.querySelector("#inputNome_produto");
+        const inputMarca = modal.querySelector("#inputMarca");
+        const inputCusto = modal.querySelector("#inputCusto");
+        const inputValor = modal.querySelector("#inputValor_venda");
+        const inputQtd = modal.querySelector("#inputQtd");
+        const inputImg = modal.querySelector("#inputLink");
+        const img = modal.querySelector(".produto_img");
+        const inputVenc = modal.querySelector("#InputData");
+
+
+        const dados_id = button.getAttribute("data-bs-whateverId");
+        const dados_Nome = button.getAttribute("data-bs-whateverNome");
+        const dados_Img = button.getAttribute("data-bs-whateverImg");
+        const dados_Venc = button.getAttribute("data-bs-whateverVenc");
+        const dados_Marca = button.getAttribute("data-bs-whateverMarca");
+        const dados_Custo = button.getAttribute("data-bs-whateverCusto");
+        const dados_Valor = button.getAttribute("data-bs-whateverValor");
+        const dados_Qtd = button.getAttribute("data-bs-whateverQtd");
+
+        inputId.value = dados_id;
+        inputNome.value = dados_Nome;
+        inputMarca.value = dados_Marca;
+        inputCusto.value = dados_Custo;
+        inputValor.value = dados_Valor;
+        inputQtd.value = dados_Qtd;
+        inputImg.value = dados_Img;
+        img.src = dados_Img;
+
+        const vencimento = dados_Venc.split(":")
+
+        if(vencimento.length == 1){
+            inputVenc.value = vencimento[0]
+        }
+        else{
+            inputVenc.value = vencimento[0]
+
+            $(vencimento).each(function(index) {
+                if(index > 0){
+                    $(".btnMais").click();
+                }
+
+                $(".inputDataNovo .inputData").each(function(index){
+                    $(this).val(vencimento[index + 1]);
+                
+                })
+            });
+            
+            }
+
+    });
+
+    $("#form-editar").on("submit", function (e) {
+        e.preventDefault();
+
+        var id = $("#inputId").val();
+        var inputNome = $("#inputNome_produto").val();
+        var inputMarca = $("#inputMarca").val();
+        var inputCusto = $("#inputCusto").val();
+        var inputValor = $("#inputValor_venda").val();
+        var inputQtd = $("#inputQtd").val();
+        var inputImg = $("#inputLink").val();
+        var validade = getInputDatas();
+
+
+        var form_data = new FormData();
+        form_data.append("id", id);
+        form_data.append("nome", inputNome);
+        form_data.append("validade", validade);
+        form_data.append("marca", inputMarca);
+        form_data.append("custo", inputCusto);
+        form_data.append("valor", inputValor);
+        form_data.append("quantidade", inputQtd);
+        form_data.append("url", inputImg);
+
+
+        $.ajax({
+            url: "ajax/editar.php",
+            method: "POST",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            data: form_data,
+
+        }).done(function (resultado) {
+            if (resultado == "salvo!") {
+                swal
+                    .fire({
+                        icon: "success",
+                        text: "Feito com Sucesso!",
+                        type: "success"
+                    })
+                    .then((okay) => {
+                        listarProdutos()
+                        $("#edit-btn-close").click();
+                    });
+            } else {
+                swal
+                    .fire({
+                        icon: "error",
+                        text: "Ops! Houve um erro.",
+                        type: "success",
+                    })
+                    .then((okay) => {
+                        
+                    });
+            }
+        });
+    });
+
+    function deletarProduto(id){
+        var form_data = new FormData();
+        form_data.append("id", id);
+
+        Swal.fire({
+            title: 'Você tem certeza?',
+            text: "Você não será capaz de reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, deletar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajax({
+                    url: "ajax/deletar.php",
+                    method: "POST",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: form_data,
+
+                }).done(function (resultado) {
+                    if (resultado == "salvo!") {
+                        swal
+                            .fire({
+                                icon: "success",
+                                text: "Deletado com Sucesso!",
+                                type: "success"
+                            })
+                            .then((okay) => {
+                                listarProdutos()
+                            });
+                    } else {
+                        swal
+                            .fire({
+                                icon: "error",
+                                text: "Ops! Houve um erro.",
+                                type: "success",
+                            })
+                            .then((okay) => {
+                                
+                            });
+                    }
+                });
+            }
+            })
+    }
+
+
+    </script>
    
-        <?php include '../componentes/js.php'; ?>
 
     </body>
 

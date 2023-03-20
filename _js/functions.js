@@ -12,6 +12,20 @@ function mostrarSenha(event) {
   }
 }
 
+function getInputDatas(){
+  var qtd = document.querySelectorAll('.inputData').length;
+  var Datas = '';
+  $(".inputData").each(function(index) {
+      if((index + 1) != qtd){
+         Datas += $(this).val() + ":";
+      }
+      else{
+          Datas += $(this).val();
+      }
+  });
+  return Datas;
+}
+
 var InputLink = document.querySelector("#inputLink");
 
 InputLink.addEventListener("focusout", function(){ 
