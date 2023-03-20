@@ -32,7 +32,7 @@ include "../_scripts/functions.php";
         
     <!--SESSÃO Dashboard-->
 
-    <!-- <section id="dashboard" class="main-content mb-8" >
+    <section id="dashboard" class="main-content mb-8" >
 		<div class="container-fluid">
             <div class="row titulo mb-4">
                     <h1>Dashboard</h1>
@@ -42,7 +42,7 @@ include "../_scripts/functions.php";
 					<div class="stat-card">
 						<div class="stat-card__content">
 							<p class="text-uppercase mb-1 text-muted">Revenue</p>
-							<h2>R$ 1,254</h2>
+							<h2><i class="fa fa-dollar"></i> 1,254</h2>
 							<div>
 								<span class="text-success font-weight-bold mr-1"><i class="fa fa-arrow-up"></i> +5%</span> 
 								<span class="text-muted">vs last 28 days</span>
@@ -114,7 +114,7 @@ include "../_scripts/functions.php";
 			</div>
             
 		</div>
-	</section> -->
+	</section>
 
     <!--SESSÃO AVISOS-->
 
@@ -219,51 +219,6 @@ include "../_scripts/functions.php";
                             <p class="card-text">editar</p>
                             <i class="fa-solid fa-pen-to-square card-icon"></i>
                         </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                                <p class="card-text">excluir</p>
-                                <i class="fa-solid fa-trash-can fa-3x card-icon"></i>
-                            </button> -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--SESSÃO Dashboard-->
-    <section class="mb-8" id="usuarios">
-        <div class="container-fluid">
-            <div class="cards-intro">
-                <div class="row titulo mb-4">
-                    <h1>Análise</h1>
-                </div>
-                <div class="row ">
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../dashboard/dashboard.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Dashboard</p>
-                            <i class='bx bxs-pie-chart-alt-2 card-icon'></i> 
-
-                        </button>
-                    </div>
-
-
-
-                    <div class="col-md-3 container">
-                        <!-- <button onclick="window.location.href = '../usuarios/listar_usuarios.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">editar</p>
-                            <i class="fa-solid fa-pen-to-square card-icon"></i>
-                        </button> -->
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                                <p class="card-text">excluir</p>
-                                <i class="fa-solid fa-trash-can fa-3x card-icon"></i>
-                            </button> -->
                     </div>
 
                     <div class="col-md-3 container">
