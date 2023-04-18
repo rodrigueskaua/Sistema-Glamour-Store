@@ -22,7 +22,7 @@ include "../_scripts/functions.php";
 
     <script src="../_js/functions.js"></script>
 
-    <title>Pesquisar Produtos</title>
+        <title>Pesquisar Produtos</title>
 </head>
 <?php
         if($_SESSION['cargo'] == "Administrador" ){
@@ -33,71 +33,16 @@ include "../_scripts/functions.php";
          ?>   
 
     <section id="listar_clientes">
-
-        <div class="container-fluid py-2 ">
-            <div class="row py-2">
+        <div class="container-fluid  py-2">
+            <div class="row ">
                 <div class="col-lg-12 mx-auto">
                     <div class="card rounded shadow border-0">
-                        <div class="card-body p-5 bg-white rounded">
-                        <h1 class="titletest mt-0 mb-5">Pesquisar Produtos</h1>
+                        <div class="card-body p-4 bg-white rounded">
+                        <h1 class="titletest mt-0 p-2 mb-4">Produtos</h1>
+                        <div id="tabela">
 
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover " id="mytable">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align:center">ID</th>
-                                            <th style="text-align:center">Img</th>
-
-                                            <th style="text-align:center">Nome</th>
-                                            <th style="text-align:center">Código</th>
-                                            <th style="text-align:center">Fornecedor</th>
-                                            <th style="text-align:center">Custo</th>
-                                            <th style="text-align:center">Valor venda</th>
-                                            <th style="text-align:center">Quantidade</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php //Inicio do loop para preencher a tabela
-                                        include "../_scripts/config.php";
-                                        $sql = "SELECT * FROM cad_produto";
-                                        $query = $mysqli->query($sql);
-                                        while ($dados = $query->fetch_array()) {
-                                        ?>
-                                            <tr>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['id']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <img class="img" src=" <?php echo $dados['url_img']; ?>" alt="">
-
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['nome_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['codigo_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['fornecedor']; ?>
-                                                </td>
-
-                                                <td style="text-align:center">
-                                                    R$<?php echo $dados['custo_produto']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    R$<?php echo $dados['valor_venda']; ?>
-                                                </td>
-                                                <td style="text-align:center">
-                                                    <?php echo $dados['estoque_qtd']; ?>
-                                                </td>
-                                                
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                        </div>
+                                    
                         </div>
                     </div>
                 </div>
@@ -105,7 +50,33 @@ include "../_scripts/functions.php";
         </div>
     </section>
     <?php include '../componentes/js.php'; ?>
+    
+    <script>
+    $(document).ready(function () {
+        listarProdutos();
+    })
 
+    function listarProdutos() {
+        var displayData = "true";
+        $.ajax({
+            url: "ajax/listar_produtos.php",
+            type: "post",
+            data: {
+                mostrar: displayData,
+            },
+
+            success: function (data, status) {
+                $("#tabela").html(data);
+                $('#mytable').DataTable( {
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+    } );
+            },
+        });
+    };
+
+    </script>
 </body>
 
 </html>

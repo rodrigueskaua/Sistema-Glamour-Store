@@ -29,7 +29,7 @@ include "../_scripts/functions.php";
 
 <body id="body-pd">
     <?php include "../menu/menuGerente.php";?>
-        
+      
     <!--SESSÃO Dashboard-->
 
     <section id="dashboard" class="main-content mb-8" >
@@ -41,11 +41,11 @@ include "../_scripts/functions.php";
 				<div class="col-sm-6">
 					<div class="stat-card">
 						<div class="stat-card__content">
-							<p class="text-uppercase mb-1 text-muted">Revenue</p>
+							<p class="text-uppercase mb-1 text-muted">Vendas</p>
 							<h2><i class="fa fa-dollar"></i> 1,254</h2>
 							<div>
 								<span class="text-success font-weight-bold mr-1"><i class="fa fa-arrow-up"></i> +5%</span> 
-								<span class="text-muted">vs last 28 days</span>
+								<span class="text-muted">últimos 30 dias</span>
 							</div>
 						</div>
 						<div class="stat-card__icon stat-card__icon--success">
@@ -59,7 +59,7 @@ include "../_scripts/functions.php";
 				<div class="col-sm-6">
 					<div class="stat-card">
 						<div class="stat-card__content">
-							<p class="text-uppercase mb-1 text-muted">Users</p>
+							<p class="text-uppercase mb-1 text-muted">Usuários</p>
 							<h2>21,254</h2>
 							<div>
 								<span class="text-danger font-weight-bold mr-1"><i class="fa fa-arrow-down"></i> -5%</span> 
@@ -79,11 +79,11 @@ include "../_scripts/functions.php";
 				<div class="col-sm-6">
 					<div class="stat-card">
 						<div class="stat-card__content">
-							<p class="text-uppercase mb-1 text-muted">Revenue</p>
+							<p class="text-uppercase mb-1 text-muted">Vendas</p>
 							<h2><i class="fa fa-dollar"></i> 1,254</h2>
 							<div>
 								<span class="text-success font-weight-bold mr-1"><i class="fa fa-arrow-up"></i> +5%</span> 
-								<span class="text-muted">vs last 28 days</span>
+								<span class="text-muted">últimos 30 dias</span>
 							</div>
 						</div>
 						<div class="stat-card__icon stat-card__icon--success">
@@ -97,11 +97,11 @@ include "../_scripts/functions.php";
 				<div class="col-sm-6">
 					<div class="stat-card">
 						<div class="stat-card__content">
-							<p class="text-uppercase mb-1 text-muted">Users</p>
+							<p class="text-uppercase mb-1 text-muted">Usuários</p>
 							<h2>21,254</h2>
 							<div>
 								<span class="text-danger font-weight-bold mr-1"><i class="fa fa-arrow-down"></i> -5%</span> 
-								<span class="text-muted">vs last 28 days</span>
+								<span class="text-muted">últimos 30 dias</span>
 							</div>
 						</div>
 						<div class="stat-card__icon stat-card__icon--primary">
@@ -116,14 +116,14 @@ include "../_scripts/functions.php";
 		</div>
 	</section>
 
-    <!--SESSÃO AVISOS-->
+    <!--SESSÃO GRAFICOS-->
 
-    <section class="mb-8" id="avisos">
+    <section class="mb-8" id="graficos">
 
         <div class="container-fluid">
         <div class="cards-intro">
             <div class="row titulo mb-4">
-                <h1>Avisos</h1>
+                <h1>Gráficos</h1>
             </div>
             <div class="col-md-12 d-flex justify-content-center">
                 <div class="alert alert-warning alert-dismissible alert-light fade show" role="alert">
@@ -146,183 +146,6 @@ include "../_scripts/functions.php";
         </div>
     </div>
 
-    </section>
-
-       
-
-    <section class="mb-8" id="vendas">
-
-        <!--SESSÃO VENDAS-->
-        <div class="container-fluid">
-            <div class="cards-intro">
-                <div class="row titulo mb-4">
-                    <h1>Vendas</h1>
-                </div>
-                <div class="row ">
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../vendas/venda.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Nova Venda</p>
-                            <i class="fa-solid fa-cart-shopping fa-3x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../vendas/listar_vendas.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Pesquisar</p>
-                            <i class="fa-solid fa-magnifying-glass fa-3x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../vendas/cancelar_venda.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">cancelar venda</p>
-                            <i class="fa-solid fa-ban fa-3x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!--SESSÃO PRODUTOS-->
-    <section class="mb-8" id="produtos">
-        <div class="container-fluid">
-            <div class="cards-intro">
-                <div class="row titulo mb-4">
-                    <h1>Produtos</h1>
-                </div>
-                <div class="row ">
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../produtos/cadastro_produtos.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Novo</p>
-                            <i class="fa-solid fa-plus fa-4x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../produtos/listar_produtos_Sessao.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Pesquisar</p>
-                            <i class="fa-solid fa-magnifying-glass fa-3x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../produtos/listar_produtos.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">editar</p>
-                            <i class="fa-solid fa-pen-to-square card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                                <p class="card-text">excluir</p>
-                                <i class="fa-solid fa-trash-can fa-3x card-icon"></i>
-                            </button> -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--SESSÃO ESTOQUE-->
-    <section class="mb-8" id="estoque">
-        <div class="container-fluid">
-
-
-            <div class="cards-intro">
-                <div class="row titulo mb-4">
-                    <h1>Estoque</h1>
-                </div>
-
-                <!--ALERTA-->
-
-
-                <!--BOTÕES-->
-                <div class="row">
-
-
-
-                    <div class="col-md-3 container">
-                        <button type="submit" onclick="window.location.href = '../produtos/estoque_baixo.php'" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">sugestão de compras</p>
-                            <i class="fa-solid fa-list-check fa-3x card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!--  -->
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">comprar mais</p>
-                            <i class="fa-solid fa-cart-arrow-down fa-3x card-icon"></i>
-                        </button> -->
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Pesquisar</p>
-                            <i class="fa-solid fa-magnifying-glass fa-3x card-icon"></i>
-                        </button> -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="mb-8" id="usuarios">
-        <div class="container-fluid">
-            <div class="cards-intro">
-                <div class="row titulo mb-4">
-                    <h1>Usuários</h1>
-                </div>
-                <div class="row ">
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../usuarios/cadastro_usuario.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">Novo</p>
-                            <i class="fa-solid fa-plus fa-4x card-icon"></i>
-                        </button>
-                    </div>
-
-
-
-                    <div class="col-md-3 container">
-                        <button onclick="window.location.href = '../usuarios/listar_usuarios.php'" type="submit" class="btn btn-confirmar mb-1 card-body">
-                            <p class="card-text">editar</p>
-                            <i class="fa-solid fa-pen-to-square card-icon"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                                <p class="card-text">excluir</p>
-                                <i class="fa-solid fa-trash-can fa-3x card-icon"></i>
-                            </button> -->
-                    </div>
-
-                    <div class="col-md-3 container">
-                        <!-- <button type="submit" class="btn btn-confirmar mb-1 card-body">
-                                <p class="card-text">excluir</p>
-                                <i class="fa-solid fa-trash-can fa-3x card-icon"></i>
-                            </button> -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </section>
 
 
